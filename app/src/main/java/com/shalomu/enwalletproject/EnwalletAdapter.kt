@@ -3,6 +3,7 @@ package com.shalomu.enwalletproject
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -14,6 +15,7 @@ class EnwalletAdapter(var enwalletList: List<Enwallet>) :
     }
     override fun onBindViewHolder(holder: EnwalletViewHolder, position: Int) {
         val enwallet = enwalletList[position]
+        holder.ivIncomeItem.setImageResource(enwallet.expenseImage)
         holder.tvIncomeName.text = enwallet.expenseName
         holder.tvIncomeItemPrice.text = enwallet.expensePrice
         holder.tvIncomeDate.text = enwallet.expenseDate
@@ -27,6 +29,7 @@ class EnwalletAdapter(var enwalletList: List<Enwallet>) :
 
 
 class EnwalletViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    val ivIncomeItem = itemView.findViewById<ImageView>(R.id.ivIncomeItem)
     val tvIncomeName = itemView.findViewById<TextView>(R.id.tvIncomeName)
     val tvIncomeItemPrice = itemView.findViewById<TextView>(R.id.tvIncomeItemPrice)
     val tvIncomeDate = itemView.findViewById<TextView>(R.id.tvIncomeDate)
